@@ -124,7 +124,7 @@ class Curl {
         return compact ( 'data', 'matches' );
     }
 
-    //生成key
+    //生成签名
     public function generateMKII($request_data = [], $request_time = "", $secret_key = "") {
         return strtoupper( md5 ( sha1( base64_encode( urlencode( $secret_key . static::serialize( $request_data ) . $secret_key . $request_time ) ) ) ) );
     }
